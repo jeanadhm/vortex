@@ -21,6 +21,9 @@ js/main.js        état de la partie (menu, jeu, fin) et boucle de jeu
 ```
 Les scripts sont chargés dans cet ordre par `index.html` et partagent leurs variables globales.
 
+## Autre jeu du dépôt
+- [`colonie-noire/`](colonie-noire/) : FPS 3D de fourmis (noires contre rouges), voir son README.
+
 ## Versions
 - **v1.1** : ombres en temps réel, vortex animés, circulation, 6 niveaux, combos, effets, minicarte, détails urbains
 - **v1.0** : prototype jouable (ville procédurale, bots, classement, parties de 2 minutes)

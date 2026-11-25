@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Colonie Noire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="tzone"></div>
+
+<div id="hud" hidden>
+  <div id="obj"><b id="lvlName"></b><span id="objText"></span></div>
+  <div id="compass" hidden><div id="arrow"></div><span id="dist"></span></div>
+  <div id="cross"><i></i><i></i><i></i><i></i><b></b></div>
+  <div id="hitm"></div>
+  <div id="dmg"></div>
+  <div id="dmgDir"></div>
+  <div id="vitals">
+    <div class="bar"><label>Vie</label><div class="track"><div id="hpBar"></div></div><b id="hpNum">100</b></div>
+    <div class="bar armor"><label>Chitine</label><div class="track"><div id="arBar"></div></div><b id="arNum">50</b></div>
+  </div>
+  <div id="weap">
+    <div id="slots"><span>1</span><span>2</span><span>3</span></div>
+    <div id="wName">Acide formique</div>
+    <div id="wAmmo">100%</div>
+    <div class="track thin"><div id="acidBar"></div></div>
+  </div>
+  <div id="boss" hidden><b id="bossName"></b><div class="track"><div id="bossBar"></div></div></div>
+  <div id="dlg" hidden><b id="dlgWho"></b><p id="dlgText"></p></div>
+  <div id="notice"></div>
+  <div id="feed"></div>
+</div>
+
+<div id="touch" hidden>
+  <div id="stick" hidden><i></i></div>
+  <button id="tFire">Tir</button><button id="tJump">Saut</button><button id="tWeap">Arme</button><button id="tPause" aria-label="Pause">II</button>
+</div>
+
+<section class="screen" id="title" hidden>
+  <div class="tblock">
+    <h1>Colonie Noire</h1>
+    <p class="tag">La colonie Rouge a volé nos cocons. Une soldate noire part les reprendre.</p>
+    <button id="bPlay" class="primary">Jouer</button>
+    <div id="chapters"></div>
+    <details class="keys"><summary>Commandes</summary>
+      <dl>
+        <div><dt>ZQSD / WASD / flèches</dt><dd>Se déplacer</dd></div>
+        <div><dt>Souris</dt><dd>Regarder</dd></div>
+        <div><dt>Clic gauche</dt><dd>Attaquer</dd></div>
+        <div><dt>1 · 2 · 3, molette</dt><dd>Mandibules, acide, graine</dd></div>
+        <div><dt>Maj</dt><dd>Courir</dd></div>
+        <div><dt>Espace</dt><dd>Sauter</dd></div>
+        <div><dt>Échap</dt><dd>Pause</dd></div>
+      </dl>
+      <p>Sur mobile : joystick à gauche, glisser à droite pour viser, boutons à l'écran.</p>
+    </details>
+  </div>
+  <p class="ver">v0.1 · prototype</p>
+</section>
+
+<section class="screen story" id="story" hidden>
+  <div class="card">
+    <p class="chap" id="sChap"></p>
+    <h2 id="sName"></h2>
+    <div id="sText"></div>
+    <button id="bStart" class="primary">Commencer</button>
+    <p class="hint">Clique pour capturer la souris. Échap pour mettre en pause.</p>
+  </div>
+</section>
+
+<section class="screen" id="pause" hidden>
+  <div class="card small">
+    <h2>Pause</h2>
+    <button id="bResume" class="primary">Reprendre</button>
+    <button id="bRestart">Recommencer le chapitre</button>
+    <label class="sens">Sensibilité de la souris<input id="sens" type="range" min=".3" max="2.5" step=".1" value="1"></label>
+    <button id="bMenu">Menu principal</button>
+  </div>
+</section>
+
+<section class="screen" id="dead" hidden>
+  <div class="card small">
+    <h2>Tu es tombée</h2>
+    <p id="deadMsg"></p>
+    <button id="bRetry" class="primary">Réessayer le chapitre</button>
+    <button id="bMenu2">Menu principal</button>
+  </div>
+</section>
+
+<section class="screen story" id="end" hidden>
+  <div class="card">
+    <p class="chap">Épilogue</p>
+    <h2>La colonie vivra</h2>
+    <div id="eText"></div>
+    <dl id="eStats"></dl>
+    <button id="bMenu3" class="primary">Menu principal</button>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/util.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/ant.js"></script>
+<script src="js/world.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/enemies.js"></script>
+<script src="js/player.js"></script>
+<script src="js/hud.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
