@@ -1,0 +1,55 @@
+/* Vortex City · styles
+   Palette : ciel dégradé, asphalte #3d4456, blocs pastel, rose #ff3d7f pour le joueur.
+   Polices : Lilita One (titres) + Nunito (texte). */
+[hidden]{display:none!important}
+html,body{height:100%;margin:0}
+*{box-sizing:border-box;min-width:0}
+body{background:#7cc4ff;color:#14161f;font:600 15px/1.4 Nunito,system-ui,sans-serif;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none}
+#c{position:fixed;inset:0;width:100%;height:100%;display:block}
+.hud{position:fixed;pointer-events:none;z-index:2}
+#top{top:calc(env(safe-area-inset-top,0px) + 12px);left:max(12px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.pill{background:#14161fe6;color:#fff;border-radius:999px;padding:5px 14px;font:22px/1.2 'Lilita One',sans-serif;white-space:nowrap}
+.pill small{font:800 12px Nunito,sans-serif;opacity:.75;margin-left:6px}
+#time.low{background:#e63946}
+#lvl{background:#ff3d7f;font-size:16px;padding:4px 12px}
+#combo{background:#ffd60a;color:#14161f;font-size:18px;transition:transform .12s}
+#combo.bump{transform:scale(1.18)}
+#mini{width:120px;height:120px;border-radius:14px;background:#14161fcc;border:2px solid #ffffff55}
+#board{top:calc(env(safe-area-inset-top,0px) + 12px);right:max(12px,env(safe-area-inset-right,0px));background:#14161fd9;color:#fff;border-radius:14px;padding:8px 12px;width:176px;font-size:13px}
+#board ol{margin:0;padding:0;list-style:none}
+#board li{display:flex;gap:7px;align-items:center;padding:2px 0}
+#board li.me{color:#ff8db4;font-weight:800}
+#board .r{width:16px;opacity:.6;font-variant-numeric:tabular-nums}
+#board .dot{width:10px;height:10px;border-radius:50%;flex:none;border:2px solid #fff}
+#board .n{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#board .v{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{position:fixed;left:0;top:0;z-index:1;color:#fff;font:800 13px Nunito,sans-serif;text-shadow:0 1px 3px #000c;pointer-events:none;white-space:nowrap;will-change:transform}
+.tag.me{color:#ffe14d}
+.pop{position:fixed;z-index:3;pointer-events:none;font:26px 'Lilita One',sans-serif;color:#fff;-webkit-text-stroke:1.5px #14161f;text-shadow:0 3px 0 #14161f;white-space:nowrap;animation:pop .9s ease-out forwards}
+@keyframes pop{0%{transform:translate(-50%,0) scale(.4);opacity:0}20%{transform:translate(-50%,-14px) scale(1.15);opacity:1}100%{transform:translate(-50%,-70px) scale(1);opacity:0}}
+#toast{left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 28px);transform:translateX(-50%) scale(.9);background:#fff;border:3px solid #14161f;border-radius:999px;padding:6px 18px;font:20px 'Lilita One',sans-serif;opacity:0;transition:opacity .25s,transform .25s;white-space:nowrap;box-shadow:0 4px 0 #14161f}
+#toast.on{opacity:1;transform:translateX(-50%) scale(1)}
+#toast.lv{background:#ffd60a}
+#joy{position:fixed;z-index:3;width:110px;height:110px;margin:-55px 0 0 -55px;border-radius:50%;border:3px solid #ffffff99;background:#14161f33;pointer-events:none}
+#joy i{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:#ff3d7f;border:3px solid #fff}
+.ov{position:fixed;inset:0;z-index:5;display:grid;place-items:center;padding:16px max(16px,env(safe-area-inset-left,0px));background:linear-gradient(#14161f00 30%,#14161f80);overflow-y:auto}
+.card{background:#fff;border:3px solid #14161f;border-radius:24px;box-shadow:0 8px 0 #14161f;padding:22px 22px 16px;width:100%;max-width:370px}
+.card h1{font:clamp(46px,13vw,64px)/.95 'Lilita One',sans-serif;margin:0 0 8px;color:#ff3d7f;letter-spacing:-.01em;text-shadow:3px 3px 0 #14161f}
+.card h2{font:56px/1 'Lilita One',sans-serif;margin:0;color:#ff3d7f;text-shadow:3px 3px 0 #14161f}
+.sub{font-size:16px;margin:0 0 16px}
+label{display:block;font-weight:800;margin-bottom:4px}
+input{width:100%;font:800 16px Nunito,sans-serif;padding:10px 12px;border:3px solid #14161f;border-radius:12px;margin-bottom:12px;user-select:text;-webkit-user-select:text}
+button{display:block;width:100%;font:26px 'Lilita One',sans-serif;color:#fff;background:#ff3d7f;border:3px solid #14161f;border-radius:14px;padding:10px;cursor:pointer;box-shadow:0 5px 0 #14161f;margin-bottom:10px;touch-action:manipulation}
+button:hover{background:#ff5a93}
+button:active{transform:translateY(4px);box-shadow:0 1px 0 #14161f}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #2f80ff;outline-offset:2px}
+button.ghost{background:#fff;color:#14161f;font-size:20px}
+.help{font-size:13px;color:#4a5060;margin:4px 0 0}
+details{margin-top:10px;border-top:2px dashed #d5d8e0;padding-top:8px;font-size:13px}
+summary{cursor:pointer;font-weight:800;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:'+';font-size:16px}
+details[open] summary::after{content:'–'}
+details ul{margin:6px 0 0;padding-left:18px;color:#3a4050}
+.ver{background:#ffd60a;border-radius:6px;padding:0 6px;margin-right:6px}
+#res{font-size:17px;margin:8px 0 16px}
+@media(max-width:600px){#board{width:140px;font-size:12px;padding:6px 9px}.pill{font-size:19px}#mini{width:92px;height:92px}}
